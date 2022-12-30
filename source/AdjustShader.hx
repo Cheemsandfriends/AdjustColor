@@ -22,27 +22,11 @@ class AdjustShader
 			multipliers = [];
 			offsets = [];
 		}
-		multipliers[0] = value[0];
-		multipliers[1] = value[1];
-		multipliers[2] = value[2];
-		multipliers[3] = value[3];
-		multipliers[4] = value[5];
-		multipliers[5] = value[6];
-		multipliers[6] = value[7];
-		multipliers[7] = value[8];
-		multipliers[8] = value[10];
-		multipliers[9] = value[11];
-		multipliers[10] = value[12];
-		multipliers[11] = value[13];
-		multipliers[12] = value[15];
-		multipliers[13] = value[16];
-		multipliers[14] = value[17];
-		multipliers[15] = value[18];
+		var valueArray:Array<Int> = [0, 1, 2, 3, 5, 6, 7, 8, 10, 11, 12, 13, 15, 16, 17, 18];
+		for (i in 0...valueArray.length) multipliers[i] = value[valueArray[i]];
 		trace(multipliers);
-		offsets[0] = value[4] / 255.0;
-		offsets[1] = value[9] / 255.0;
-		offsets[2] = value[14] / 255.0;
-		offsets[3] = value[19] / 255.0;
+		valueArray = [4, 9, 14, 19]
+		for (i in 0...valueArray.length) offsets[i] = value[valueArray[i]] / 255.0;
 		trace(offsets);
 		return value;
 	}
